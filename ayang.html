@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pacarku Tercinta ❤️</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      text-align: center;
+    }
+    .fade-img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 15px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+    }
+    .fade-img.show {
+      opacity: 1;
+    }
+    .fade-text {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      padding: 0 15px;
+    }
+    .fade-text.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column justify-content-center align-items-center vh-100">
+
+  <h3 class="mb-3">Pacarku Tercinta ❤️</h3>
+  <img id="transitionImage" class="fade-img" src="" alt="Pacar" />
+  <div id="transitionText" class="fade-text"></div>
+
+  <script>
+    const data = [
+      {
+        img: "img/berdua.jpg",
+        text: "Aku mencintaimu, hari ini, sekarang dan selamanya 💍",
+      },
+      {
+        img: "img/baju_hitam.jpg",
+        text: "Ayang adalah alasan senyumku, semangatku setiap hari ❤️",
+      },
+      {
+        img: "img/hijab.jpg",
+        text: "Aku seneng banget bisa memilikimu sayang dan selalu bahagia 💕",
+      },
+      {
+        img: "img/mukenah.jpg",
+        text: "Ayang adalah rumahku, tempat bercerita, curhat, dan bersandar 💖",
+      },
+    ];
+
+    let index = 0;
+    const imageElement = document.getElementById("transitionImage");
+    const textElement = document.getElementById("transitionText");
+
+    function changeSlide() {
+      imageElement.classList.remove("show");
+      textElement.classList.remove("show");
+
+      setTimeout(() => {
+        imageElement.src = data[index].img;
+        textElement.textContent = data[index].text;
+
+        imageElement.classList.add("show");
+        textElement.classList.add("show");
+
+        index = (index + 1) % data.length;
+      }, 500);
+    }
+
+    changeSlide();
+    setInterval(changeSlide, 3000);
+  </script>
+
+</body>
+</html>
